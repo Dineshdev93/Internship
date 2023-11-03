@@ -1,0 +1,27 @@
+.card_profile img{
+    max-width: 86px;
+    border-radius: 40px;
+    border: 1px solid black;
+               
+}
+.email{
+    color: pink;
+}
+.mobile{
+    color: rgb(53, 95, 220)
+}
+.genders{
+    color: coral;
+}
+.location{
+    color: blue;
+}
+.status{
+    color: rgb(91, 138, 91);
+}
+.date_created{
+    color: rgb(167, 57, 57);
+}
+.date_updated{
+    color: cadetblue;
+}
