@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./register.css";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
@@ -7,7 +7,9 @@ import Row from "react-bootstrap/Row";
 import Select from "react-select";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Spiner from "../../components/Spiner/Spiner";
 export default function Register() {
+  const [showspin,setShowspin] = useState(false)
   const [inputdata, setInputData] = React.useState({
     fname: "",
     lname: "",
@@ -46,6 +48,9 @@ export default function Register() {
     if (image) {
       setPreview(URL.createObjectURL(image));
     }
+    setInterval(() => {
+      setShowspin(true)
+    }, 1200);
   }, [image]);
 
   const submitdetails = (e) => {
@@ -72,7 +77,10 @@ export default function Register() {
   };
 
   return (
-    <main className="container ">
+    <>
+    {
+      showspin ?
+      <main className="container ">
       <h2 className="text-center mt-1 ">Register Your Details</h2>
       <Card className="shadow mt-2 p-3 bg-light text-black">
         <div className="profile_div text-center">
@@ -170,5 +178,7 @@ export default function Register() {
       </Card>
       <ToastContainer position="top-center" />
     </main>
+    : <Spiner/>}
+    </>
   );
 }

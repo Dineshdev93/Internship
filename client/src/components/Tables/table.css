@@ -1,0 +1,12 @@
+.table{
+    border-radius: 10px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.td_img img{
+    width: 35px;
+    border-radius:50%;
+}
+.action{
+    background: none !important;
+    border: none;
+}

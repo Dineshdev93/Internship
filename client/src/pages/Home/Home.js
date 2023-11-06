@@ -1,12 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Dropdown from "react-bootstrap/Dropdown";
+import {useNavigate}  from 'react-router-dom'
+import Tables from "../../components/Tables/Tables";
+import Spiner from "../../components/Spiner/Spiner";
 import "./home.css";
 export default function Home() {
-  //If you want to use icons then use font awesome icons and givd cdn link to index.html
+  //If you want to use icons then use font awesome icons and givd cdn link to index.html only for simple html
+  const navigate = useNavigate()
+   const adduser = () => {
+    navigate('/register')
+   }
+   const [spinshow,setSpinshow] = useState(true)
+   useEffect(()=>{
+     setTimeout(()=>{
+       setSpinshow(false)
+     },1200)
+   },[])
   return (
     <section className="container ">
       <div className="main mt-3 d-flex justify-content-between">
@@ -25,9 +38,10 @@ export default function Home() {
           </Row>
         </Form>
         <div className="right">
-          <Button>
-            {" "}
+          <Button onClick={adduser}>
+            
             <i class="fa-regular fa-plus"></i> Add User
+            
           </Button>
         </div>
       </div>
@@ -62,7 +76,7 @@ export default function Home() {
             />
           </div>
         </div>
-        {/* short by value */}
+        {/* short by value dropdown */}
         <div className="statu">
           <h3>Short by Value</h3>
           <Dropdown className="text-center">
@@ -102,6 +116,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+     {spinshow ? <Spiner/> :<Tables/>}
     </section>
   );
 }

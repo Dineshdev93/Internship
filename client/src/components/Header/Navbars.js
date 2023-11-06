@@ -9,7 +9,7 @@ function Navbars() {
         <Container>
           <Navbar.Brand href="/">Home</Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link href="/userprofile/:id">Profile</Nav.Link>
+          <Nav.Link href="/userprofile/:id">Profile</Nav.Link>
           </Nav>
         </Container>
       </Navbar> 

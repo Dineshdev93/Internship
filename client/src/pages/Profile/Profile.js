@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Card from "react-bootstrap/Card";
 import "./profile.css";
 import Row from "react-bootstrap/esm/Row";
+import Spiner from "../../components/Spiner/Spiner";
 export default function Profile() {
+  const [showspin,setShowspin] = useState(true)
+  useEffect(()=>{
+   setTimeout(()=>{
+       setShowspin(false)
+   },500)
+  },[])
   return (
+    <>
+{  showspin ? <Spiner/> :
     <div className="container">
       <Card className="shadow mt-5 col-lg-5 mx-auto">
         <Card.Body>
@@ -47,5 +56,7 @@ export default function Profile() {
         </Card.Body>
       </Card>
     </div>
+       }
+       </>
   );
 }

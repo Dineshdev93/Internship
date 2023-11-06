@@ -1,5 +1,5 @@
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
@@ -7,8 +7,10 @@ import Row from "react-bootstrap/Row";
 import Select from "react-select";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Spiner from "../../components/Spiner/Spiner";
 import './edit.css'
 export default function Edit() {
+  const [showspin,setShowspin] = useState(false)
   const [inputdata, setInputData] = React.useState({
     fname: "",
     lname: "",
@@ -47,6 +49,9 @@ export default function Edit() {
     if (image) {
       setPreview(URL.createObjectURL(image));
     }
+    setTimeout(() => {
+      setShowspin(true)
+    }, 1200);
   }, [image]);
 
   const submitdetails = (e) => {
@@ -74,6 +79,9 @@ export default function Edit() {
 
   return (
     <>
+    {
+      showspin ?
+    
         <main className="container bg-primary rounded ">
       <h2 className="text-center mt-1 ">Update Your Details</h2>
       <Card className="shadow mt-2 p-3 bg-light text-black">
@@ -172,6 +180,7 @@ export default function Edit() {
       </Card>
       <ToastContainer position="top-center" />
     </main>
+       : <Spiner/>  }
     </>
   )
 }
